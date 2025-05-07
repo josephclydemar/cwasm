@@ -63,23 +63,12 @@
   #include "node_editor.c"
 #endif
 
-//----------------------------------------------------------------------------------
-// Global Variables Definition
-//----------------------------------------------------------------------------------
 struct nk_context *ctx;
 struct nk_colorf bg;
 
-//----------------------------------------------------------------------------------
-// Module Functions Declaration
-//----------------------------------------------------------------------------------
 void UpdateDrawFrame(void);     // Update and Draw one frame
 
-//----------------------------------------------------------------------------------
-// Main Entry Point
-//----------------------------------------------------------------------------------
 int main(void) {
-        // Initialization
-    //--------------------------------------------------------------------------------------
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "[raylib-nuklear] demo");
     SetTargetFPS(60);
 
@@ -98,26 +87,18 @@ int main(void) {
     /*set_style(ctx, THEME_DARK);*/
     #endif
 
-    //--------------------------------------------------------------------------------------
-
     // Main game loop
 #if defined(PLATFORM_WEB)
     emscripten_set_main_loop(UpdateDrawFrame, 0, 1);
 #else
-    while (!WindowShouldClose())    // Detect window close button or ESC key
-    {
+    while (!WindowShouldClose()) {    // Detect window close button or ESC key
         UpdateDrawFrame();
     }
 #endif
-    //--------------------------------------------------------------------------------------
 
-    // De-Initialization
-    //--------------------------------------------------------------------------------------
     UnloadNuklear(ctx);     // Unload the Nuklear GUI
                             // Upload font
     CloseWindow();
-    //--------------------------------------------------------------------------------------
-
     return 0;
 }
 
@@ -160,7 +141,6 @@ void UpdateDrawFrame(void) {
     }
     nk_end(ctx);
 
-    /* -------------- EXAMPLES ---------------- */
     #ifdef INCLUDE_CALCULATOR
         calculator(ctx);
     #endif
@@ -173,9 +153,7 @@ void UpdateDrawFrame(void) {
     #ifdef INCLUDE_NODE_EDITOR
         node_editor(ctx);
     #endif
-    /* ----------------------------------------- */
 
-    /* Draw */
     BeginDrawing();
     {
         ClearBackground(ColorFromNuklearF(bg));
