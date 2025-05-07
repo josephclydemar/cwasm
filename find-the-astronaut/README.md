@@ -7,11 +7,9 @@ A simple browser-based game written in C and compiled to WebAssembly (Wasm). The
 > [!NOTE]
 > This code has only been tested on Linux.
 
-<br>
-
 - [Emscripten SDK](https://emscripten.org/docs/getting_started/downloads.html)
 - GNU Make
-- Python 3
+- Python 3.x
 
 #### Optional (For Development)
 If you want linting, code navigation, and auto-completion in your editor, you’ll also need:
