@@ -38,7 +38,7 @@ make
 <br>
 
 ## Running the Project
-This run a a local HTTP server from the Build directory:
+This runs a local HTTP server from the Build directory:
 ```
 make run
 ```
